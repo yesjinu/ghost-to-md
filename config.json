@@ -1,16 +1,164 @@
 {
   "db": [
     {
-      "name": "Jinu Noh",
-      "age": 29
-    },
-		{
-      "name": "Tomas",
-      "age": 37
-    },
-		{
-			"name": "Doe",
-			"age": 99
-		}
+      "meta": {
+        "exported_on": 1673628552708,
+        "version": "4.47.4"
+      },
+      "data": {
+        "posts": [
+          {
+            "id": "64e4c23affe3sbgad020bah8",
+            "uuid": "73555bd9-cfac-4532-9820-177fbf16d87c",
+            "title": "Some random title",
+            "slug": "some-random-title",
+            "mobiledoc": "{\"version\":\"0.3.1\",\"ghostVersion\":\"4.0\",\"markups\":[],\"atoms\":[],\"cards\":[],\"sections\":[[1,\"p\",[[0,[],0,\"\"]]]]}",
+            "html": null,
+            "comment_id": "61642da55f116e003b84d502",
+            "plaintext": null,
+            "feature_image": null,
+            "featured": 0,
+            "type": "page",
+            "status": "draft",
+            "locale": null,
+            "visibility": "public",
+            "email_recipient_filter": "none",
+            "author_id": "6284e4c13fe3ba020b16e83c",
+            "created_at": "2021-10-11 12:27:17",
+            "updated_at": "2021-10-11 12:27:17",
+            "published_at": "2021-10-16 07:03:55",
+            "custom_excerpt": null,
+            "codeinjection_head": null,
+            "codeinjection_foot": null,
+            "custom_template": null,
+            "canonical_url": null,
+            "newsletter_id": null
+          }
+        ],
+        "posts_meta": [
+          {
+            "id": "6284e4c23fe3ba020b16e879",
+            "post_id": "6284e4c23fe3ba020b16e857",
+            "og_image": null,
+            "og_title": null,
+            "og_description": null,
+            "twitter_image": null,
+            "twitter_title": null,
+            "twitter_description": null,
+            "meta_title": null,
+            "meta_description": null,
+            "email_subject": null,
+            "frontmatter": null,
+            "feature_image_alt": null,
+            "feature_image_caption": null,
+            "email_only": 0
+          }
+        ],
+        "users": [
+          {
+            "id": "1",
+            "name": "Jinu Noh",
+            "slug": "jinu",
+            "password": "$2a$10$/3hr51Z4XmEnrXSG3/pOSO1dDscjqnOhcyeXQLYn/PP/CQiACUkk.",
+            "email": "njw1233@gmail.com",
+            "profile_image": "//www.gravatar.com/avatar/b9f79cb0e5d35ba0132c5d2547ab1551?s=250&d=mm&r=x",
+            "cover_image": null,
+            "bio": null,
+            "website": null,
+            "location": null,
+            "facebook": null,
+            "twitter": null,
+            "accessibility": null,
+            "status": "active",
+            "locale": null,
+            "visibility": "public",
+            "meta_title": null,
+            "meta_description": null,
+            "tour": null,
+            "last_seen": "2023-01-13 16:47:15",
+            "created_at": "2022-05-18 12:10:36",
+            "updated_at": "2023-01-13 16:47:15"
+          }
+        ],
+        "posts_authors": [
+          {
+            "id": "6284e4c23fe3ba020b16e878",
+            "post_id": "6284e4c23fe3ba020b16e857",
+            "author_id": "6284e4c13fe3ba020b16e83c",
+            "sort_order": 0
+          }
+        ],
+        "roles": [
+          {
+            "id": "6284e23c3fe3ba020b16e65d",
+            "name": "Administrator",
+            "description": "Administrators",
+            "created_at": "2022-05-18 12:10:36",
+            "updated_at": "2022-05-18 12:10:36"
+          }
+        ],
+        "roles_users": [
+          {
+            "id": "6284e23f3fe3ba020b16e7ca",
+            "role_id": "6284e23c3fe3ba020b16e661",
+            "user_id": "1"
+          }
+        ],
+        "settings": [
+          {
+            "id": "6284e2403fe3ba020b16e7cb",
+            "group": "core",
+            "key": "db_hash",
+            "value": "b7ba7d3d-db0b-4da2-98c7-ad2c077d42c9",
+            "type": "string",
+            "flags": null,
+            "created_at": "2022-05-18 12:10:40",
+            "updated_at": "2022-05-18 12:10:40"
+          }
+        ],
+        "tags": [
+          {
+            "id": "6284e23c3fe3ba020b16e65c",
+            "name": "News",
+            "slug": "news",
+            "description": null,
+            "feature_image": null,
+            "parent_id": null,
+            "visibility": "public",
+            "og_image": null,
+            "og_title": null,
+            "og_description": null,
+            "twitter_image": null,
+            "twitter_title": null,
+            "twitter_description": null,
+            "meta_title": null,
+            "meta_description": null,
+            "codeinjection_head": null,
+            "codeinjection_foot": null,
+            "canonical_url": null,
+            "accent_color": null,
+            "created_at": "2022-05-18 12:10:36",
+            "updated_at": "2022-05-18 12:10:36"
+          }
+        ],
+        "posts_tags": [
+          {
+            "id": "6284e4c23fe3ba020b16e877",
+            "post_id": "6284e4c23fe3ba020b16e857",
+            "tag_id": "6284e4c23fe3ba020b16e848",
+            "sort_order": 0
+          }
+        ],
+        "custom_theme_settings": [
+          {
+            "id": "6284e2423fe3ba020b16e82b",
+            "theme": "casper",
+            "key": "title_font",
+            "type": "select",
+            "value": "Modern sans-serif"
+          }
+        ]
+      }
+    }
   ]
 }
