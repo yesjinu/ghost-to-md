@@ -1,4 +1,4 @@
-module ghost-parser
+module ghost-to-md
 
 go 1.19
 
