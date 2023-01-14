@@ -6,27 +6,24 @@ import (
 	"io/ioutil"
 )
 
-type Config struct { // TODO: sync with Ghost export format
+type Person struct {
     Name string `json:"name"`
     Age  int    `json:"age"`
-    Cars []struct {
-        Brand string `json:"brand"`
-        Model string `json:"model"`
-        Year int    `json:"year"`
-    }
 }
+
+type Data struct { // TODO: sync with Ghost export format
+    DB []Person `json:"db"`
+}
+
 
 func main() {
     file, _ := ioutil.ReadFile("config.json") // TODO: get from cli args
-    var config Config
-    json.Unmarshal(file, &config)
-    fmt.Println(config.Name)
-    fmt.Println(config.Age)
-    fmt.Println(config.Cars[0].Brand)
-    fmt.Println(config.Cars[0].Model)
-    fmt.Println(config.Cars[0].Year)
-    fmt.Println(config.Cars[1].Brand)
-    fmt.Println(config.Cars[1].Model)
-    fmt.Println(config.Cars[1].Year)
-    
+    var data Data
+    json.Unmarshal(file, &data)
+    for i, person := range data.DB {
+        fileName := fmt.Sprintf("person%d.md", i)
+        content := fmt.Sprintf("Name: %s\nAge: %d", person.Name, person.Age)
+        ioutil.WriteFile(fileName, []byte(content), 0644)
+    }
+
 }
