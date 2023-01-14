@@ -1,16 +1,16 @@
 {
-	"name": "Jinu Noh",
-	"age": 29,
-	"cars" : [
+  "db": [
+    {
+      "name": "Jinu Noh",
+      "age": 29
+    },
 		{
-			"brand": "BMW",
-			"model": "M3",
-			"year": 2015
-		},
+      "name": "Tomas",
+      "age": 37
+    },
 		{
-			"brand": "Audi",
-			"model": "A4",
-			"year": 2016
+			"name": "Doe",
+			"age": 99
 		}
-	]
+  ]
 }
