@@ -4,8 +4,11 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"os"
 	"regexp"
+
+	md "github.com/JohannesKaufmann/html-to-markdown"
 )
 
 type PostType struct {
@@ -50,23 +53,26 @@ type GhostExportedFileFormat struct { // TODO: sync with Ghost export format
 }
 
 func extractFormat() string {
-	return `Id: %s
-Uuid: %s
-Title: %s
-Slug: %s
-MobileDoc: %s
-Html: %s
-CommentID: %s
-Plaintext: %s
+	return `---
+title: %s
+slug: %s
+createdAt: %s
+updatedAt: %s
+publishedAt: %s
 FeatureImage: %s
-Featured: %d
-Status: %s
-Locale: %s
-Visibility: %s
-CreatedAt: %s
-UpdatedAt: %s
-PublishedAt: %s
+---
+%s
 `
+}
+
+func html2md(html string) string {
+	converter := md.NewConverter("", true, nil)
+	markdown, err := converter.ConvertString(html)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	return markdown
 }
 
 func RemoveSpecialCharacters(str string) string {
@@ -86,7 +92,15 @@ func main() {
 	var posts = data.DB[0].Data.Posts
 	for _, post := range posts {
 		fileName := fmt.Sprintf("%s/%s.md", dirName, RemoveSpecialCharacters(post.Title))
-		content := fmt.Sprintf(extractFormat(), post.ID, post.Uuid, post.Title, post.Slug, post.MobileDoc, post.Html, post.CommentID, post.Plaintext, post.FeatureImage, post.Featured, post.Status, post.Locale, post.Visibility, post.CreatedAt, post.UpdatedAt, post.PublishedAt)
+		content := fmt.Sprintf(extractFormat(),
+			post.Title,
+			post.Slug,
+			post.CreatedAt,
+			post.UpdatedAt,
+			post.PublishedAt,
+			post.FeatureImage,
+			html2md(post.Html),
+		)
 		ioutil.WriteFile(fileName, []byte(content), 0644)
 	}
 }
