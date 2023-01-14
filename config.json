@@ -1,0 +1,16 @@
+{
+	"name": "Jinu Noh",
+	"age": 29,
+	"cars" : [
+		{
+			"brand": "BMW",
+			"model": "M3",
+			"year": 2015
+		},
+		{
+			"brand": "Audi",
+			"model": "A4",
+			"year": 2016
+		}
+	]
+}
