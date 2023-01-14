@@ -52,7 +52,7 @@ type GhostExportedFileFormat struct {
 	DB []MyDB `json:"db"`
 }
 
-func extractFormat() string {
+func mdFormat() string {
 	return `---
 title: %s
 slug: %s
@@ -63,6 +63,19 @@ FeatureImage: %s
 ---
 %s
 `
+}
+
+func toContentString(post PostType) string {
+	return fmt.Sprintf(mdFormat(),
+		post.Title,
+		post.Slug,
+		post.CreatedAt,
+		post.UpdatedAt,
+		post.PublishedAt,
+		post.FeatureImage,
+
+		html2md(post.Html),
+	)
 }
 
 func html2md(html string) string {
@@ -95,17 +108,9 @@ func main() {
 	os.Mkdir(dirName, os.ModePerm)
 
 	var posts = data.DB[0].Data.Posts
-	for _, post := range posts {
-		fileName := fmt.Sprintf("%s/%s.md", dirName, RemoveSpecialCharacters(post.Title))
-		content := fmt.Sprintf(extractFormat(),
-			post.Title,
-			post.Slug,
-			post.CreatedAt,
-			post.UpdatedAt,
-			post.PublishedAt,
-			post.FeatureImage,
-			html2md(post.Html),
-		)
+	for _, postData := range posts {
+		fileName := fmt.Sprintf("%s/%s.md", dirName, RemoveSpecialCharacters(postData.Title))
+		content := toContentString(postData)
 		ioutil.WriteFile(fileName, []byte(content), 0644)
 	}
 }
