@@ -5,15 +5,15 @@ Are you looking for a way to convert your Ghost exported JSON file into separate
 ## Installation
 1. First things first, let's get a copy of this tool on your local machine by cloning this repository:
 
-```
-git@github.com:yesjinu/ghost-to-md.git
+```bash
+git clone git@github.com:yesjinu/ghost-to-md.git
 ```
 
 2. Make sure you have Go installed on your machine. If not, head over to [this link](https://golang.org/doc/install) to get it set up: 
 
 3. Now that you have Go, running this tool is as easy as pie. All you need to do is run the main.go file, passing in the path to your Ghost exported JSON file as an argument. Like this:
 
-```go
+```bash
 go run main.go YOUR_JSON_FILE.json
 ```
 
