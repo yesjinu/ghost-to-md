@@ -48,7 +48,7 @@ type MyDB struct {
 	Data DataType `json:"data"`
 }
 
-type GhostExportedFileFormat struct { // TODO: sync with Ghost export format
+type GhostExportedFileFormat struct {
 	DB []MyDB `json:"db"`
 }
 
@@ -82,7 +82,12 @@ func RemoveSpecialCharacters(str string) string {
 }
 
 func main() {
-	file, _ := ioutil.ReadFile("config.json") // TODO: get from cli args
+	if len(os.Args) < 2 {
+		fmt.Println("Provide a JSON file to convert")
+		os.Exit(1)
+	}
+
+	file, _ := ioutil.ReadFile(os.Args[1])
 	var data GhostExportedFileFormat
 	json.Unmarshal(file, &data)
 
